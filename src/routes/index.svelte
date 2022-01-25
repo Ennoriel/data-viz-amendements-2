@@ -7,9 +7,11 @@
 
 <h2>Graphiques relatifs aux amendements déposés sous la XVème législature</h2>
 <p>
-	Les données sont issues des <a href="https://data.assemblee-nationale.fr" target="_blank"
-		>Open data de l'Assemblée Nationale</a
-	>. Le code source est disponible sur ce
+	Les données sont issues des
+	<a href="https://data.assemblee-nationale.fr" target="_blank">
+		Open data de l'Assemblée Nationale
+	</a>
+	. Le code source est disponible sur ce
 	<a href={import.meta.env.VITE_GITHUB_REPO} target="_blank">repository Github</a>.
 </p>
 <p>
