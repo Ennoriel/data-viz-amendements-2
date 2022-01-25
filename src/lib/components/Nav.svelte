@@ -1,20 +1,19 @@
 <script>
-	import { activeRoute } from '$lib/stores/activeRoute.js';
-	import ROUTES from '$lib/routes.js'
+	import { routes } from '$lib/routes';
+	import { page } from '$app/stores';
+
+	$: activeRoute = routes.find((route) => (route.url = $page.url));
 </script>
 
 <nav>
-	{#if $activeRoute}
-		<h1>{$activeRoute.title}</h1>
+	{#if activeRoute}
+		<h1>{activeRoute.title}</h1>
 	{/if}
 
 	<ul>
-		{#each ROUTES as route}
+		{#each routes as route}
 			<li>
-				<a
-						href={route.href}
-						on:click={() => $activeRoute = route}
-				>
+				<a href={route.href} on:click={() => (activeRoute = route)}>
 					{route.menu}
 				</a>
 			</li>
@@ -24,13 +23,13 @@
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
+		border-bottom: 1px solid rgba(255, 62, 0, 0.1);
 		font-weight: 300;
 		height: var(--nav-height);
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
-		
+
 		box-sizing: border-box;
 	}
 
@@ -73,12 +72,12 @@
 		height: 100%;
 		line-height: var(--nav-height);
 		text-decoration: none;
-		padding: 0 .75em;
+		padding: 0 0.75em;
 		display: block;
-		
+
 		transition: color 0.2s;
 	}
-		
+
 	a:not([aria-current]):hover {
 		color: var(--color-main);
 	}
@@ -92,10 +91,10 @@
 			z-index: 1;
 		}
 		ul:hover {
-			max-height: calc(7 * var(--nav-height) + 3px)
+			max-height: calc(7 * var(--nav-height) + 3px);
 		}
 		ul:not(:hover):before {
-			content: "Accueil ⯆";
+			content: 'Accueil ⯆';
 			display: block;
 			height: var(--nav-height);
 			line-height: var(--nav-height);
