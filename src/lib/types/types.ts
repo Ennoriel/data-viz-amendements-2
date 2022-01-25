@@ -22,3 +22,21 @@ export type Document = {
 	dateDepot: string;
 	count: number;
 };
+
+export type HistogramStackedReturn = {
+	auteur: string;
+	'Irrecevable 40': number;
+	Irrecevable: number;
+	Adopté: number;
+	'En traitement': number;
+	'Non adopté': number;
+};
+
+export type HeatmapReturn = {
+	_id: number;
+	data: Array<{
+		month: number;
+		day: number;
+		count: number;
+	}>;
+};

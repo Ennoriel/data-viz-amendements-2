@@ -1,7 +1,10 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import mongoClient from '$lib/utils/db';
+import type { HistogramStackedReturn } from '$lib/types/types';
 
-export const get: RequestHandler = async ({ params }) => {
+export const get: RequestHandler = async ({
+	params
+}): Promise<{ body: Array<HistogramStackedReturn> }> => {
 	const query = [];
 
 	if (params.slug !== 'all') {
