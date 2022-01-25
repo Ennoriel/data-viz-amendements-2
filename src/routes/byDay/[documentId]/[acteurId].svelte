@@ -27,10 +27,14 @@
 	import { goto } from '$app/navigation';
 	import Select from '$lib/components/Select.svelte';
 	import Heatmap from '$lib/components/Heatmap.svelte';
+	import { activeRoute } from '$lib/stores/activeRoute';
+	import { routes } from '$lib/routes';
 
 	export let documentId: string;
 	export let acteurId: string;
 	export let data;
+
+	$activeRoute = routes.find((route) => route.href === '/byDay/all/all');
 
 	$: if (browser) goto(`/byDay/${documentId || 'all'}/${acteurId || 'all'}`);
 </script>

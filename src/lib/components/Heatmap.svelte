@@ -4,7 +4,6 @@
 	import * as pkg from 'd3';
 	const { range, sum, scaleLinear, scaleLog, max, axisBottom } = pkg;
 	const d3Select = pkg.select;
-	import { send } from '$lib/query.util.js';
 	import { onMount } from 'svelte';
 
 	export let data = [];

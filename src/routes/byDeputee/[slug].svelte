@@ -26,9 +26,13 @@
 	import HistogramStacked from '$lib/components/HistogramStacked.svelte';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/env';
+	import { activeRoute } from '$lib/stores/activeRoute';
+	import { routes } from '$lib/routes';
 
 	export let documentId: string;
 	export let data;
+
+	$activeRoute = routes.find((route) => route.href === '/byDeputee/all');
 
 	$: if (browser) goto(`/byDeputee/${documentId || 'all'}`);
 </script>

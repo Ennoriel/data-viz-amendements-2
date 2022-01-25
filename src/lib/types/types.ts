@@ -1,3 +1,9 @@
+export type Route = {
+	menu: string;
+	title: string;
+	href: string;
+};
+
 export type Actor = {
 	_id: string;
 	uid: string;

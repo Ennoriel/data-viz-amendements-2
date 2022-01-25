@@ -1,4 +1,6 @@
-export const routes = [
+import type { Route } from '$lib/types/types';
+
+export const routes: Array<Route> = [
 	{
 		menu: 'Accueil',
 		title: 'Accueil',

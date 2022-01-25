@@ -1,19 +1,17 @@
 <script>
 	import { routes } from '$lib/routes';
-	import { page } from '$app/stores';
-
-	$: activeRoute = routes.find((route) => (route.url = $page.url));
+	import { activeRoute } from '$lib/stores/activeRoute';
 </script>
 
 <nav>
-	{#if activeRoute}
-		<h1>{activeRoute.title}</h1>
+	{#if $activeRoute}
+		<h1>{$activeRoute.title}</h1>
 	{/if}
 
 	<ul>
 		{#each routes as route}
 			<li>
-				<a href={route.href} on:click={() => (activeRoute = route)}>
+				<a href={route.href} aria-current={route.menu === $activeRoute.menu ? 'page' : undefined}>
 					{route.menu}
 				</a>
 			</li>
