@@ -23,25 +23,16 @@
 
 <script lang="ts">
 	import Select from '$lib/components/Select.svelte';
-	import Spinner from '$lib/components/Spinner.svelte';
 	import HistogramStacked from '$lib/components/HistogramStacked.svelte';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/env';
 
-	export let ref;
-
-	let working = false;
-
 	export let documentId: string;
 	export let data;
 
-	$: if (documentId && browser) goto(`/byDeputee/${documentId}`);
+	$: if (browser) goto(`/byDeputee/${documentId || 'all'}`);
 </script>
 
-<Select {ref} bind:documentId isActeur={false} />
+<Select bind:documentId isActeur={false} />
 
-{#if working}
-	<Spinner />
-{:else}
-	<HistogramStacked {data} getXVal={(v) => v.auteur} />
-{/if}
+<HistogramStacked {data} getXVal={(v) => v.auteur} />

@@ -7,7 +7,7 @@ export const routes = [
 	{
 		menu: 'par Jour',
 		title: "Nombre d'amendements par jour",
-		href: '/byDay'
+		href: '/byDay/all/all'
 	},
 	{
 		menu: 'par député',
