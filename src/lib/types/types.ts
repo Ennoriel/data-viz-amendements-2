@@ -52,3 +52,14 @@ export type SankeyReturn = {
 	target: string;
 	value: number;
 };
+
+export type LinearHistory = {
+	_id: string;
+	groupRecords: Array<{
+		records: Array<{
+			date: string;
+			count: number;
+			pourcentage: number;
+		}>;
+	}>;
+};
