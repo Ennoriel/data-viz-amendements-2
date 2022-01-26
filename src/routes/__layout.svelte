@@ -35,6 +35,10 @@
 	:global(html) {
 		--nav-height: 60px;
 		--color-main: rgb(255, 62, 0);
+		--bg-color: white;
+	}
+	:global(body) {
+		margin: 0;
 	}
 	main {
 		height: calc(100vh - var(--nav-height));
@@ -46,5 +50,27 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+
+	:global(select) {
+		max-width: calc(100vw - 100px);
+	}
+
+	/* scroll stuff */
+	:global(*) {
+		--dark: #ccc;
+		--light: var(--bg-color);
+		scrollbar-width: thin;
+		scrollbar-color: var(--dark) var(--light);
+		scroll-behavior: smooth;
+	}
+	:global(*::-webkit-scrollbar-track) {
+		background: var(--light);
+	}
+	:global(*::-webkit-scrollbar-thumb) {
+		background-color: var(--dark);
+	}
+	:global(*::-webkit-scrollbar) {
+		width: 7px;
 	}
 </style>

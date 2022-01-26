@@ -153,6 +153,5 @@
 <style>
 	select {
 		padding-bottom: 10em;
-		max-width: calc(100vw - 100px);
 	}
 </style>
