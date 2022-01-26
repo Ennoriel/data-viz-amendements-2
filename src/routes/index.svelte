@@ -22,3 +22,6 @@
 	La récupération des données n'a pas encore été optimisé sur tous les graphiques. Le chargement
 	peut prendre plusieurs secondes.
 </p>
+<p>
+	Auteur : <a href="https://github.com/Ennoriel" target="_blank">Maxime Dupont</a>
+</p>

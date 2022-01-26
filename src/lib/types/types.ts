@@ -46,3 +46,9 @@ export type HeatmapReturn = {
 		count: number;
 	}>;
 };
+
+export type SankeyReturn = {
+	source: string;
+	target: string;
+	value: number;
+};
