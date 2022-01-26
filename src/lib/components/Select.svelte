@@ -14,8 +14,8 @@
 		{#if $ref.documents}
 			{#each $ref.documents as refDocument}
 				<option value={refDocument.uid}
-					>{`${refDocument.count} - ${refDocument.titre.substring(0, 130)}${
-						refDocument.titre.length > 130 ? '...' : ''
+					>{`${refDocument.count} - ${refDocument.titre.substring(0, 120)}${
+						refDocument.titre.length > 120 ? '...' : ''
 					}`}</option
 				>
 			{/each}
@@ -36,3 +36,12 @@
 		{/if}
 	</select>
 {/if}
+
+<div></div>
+
+<style>
+	div {
+		height: 32px;
+		flex-shrink: 0;
+	}
+</style>
