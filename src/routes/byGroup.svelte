@@ -5,6 +5,7 @@
 	import { send } from '$lib/utils/query';
 	import { activeRoute } from '$lib/stores/activeRoute';
 	import { routes } from '$lib/routes';
+	import { browser } from '$app/env';
 
 	export let ref;
 
@@ -15,11 +16,13 @@
 	$activeRoute = routes.find((route) => route.href === '/byGroup');
 
 	$: {
-		working = true;
-		send(fetch, '/api/graph/stackedbar/group.json', { documentId }).then((res) => {
-			data = res;
-			working = false;
-		});
+		if (browser) {
+			working = true;
+			send(fetch, '/api/graph/stackedbar/group.json', { documentId }).then((res) => {
+				data = res;
+				working = false;
+			});
+		}
 	}
 </script>
 
